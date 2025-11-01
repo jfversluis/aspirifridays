@@ -1,15 +1,15 @@
 ﻿#pragma warning disable
-#:sdk Aspire.AppHost.Sdk@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.Azure.AppContainers@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.Azure.Redis@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.Docker@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.Redis@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.SqlServer@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.NodeJs@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.Yarp@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.Maui@13.0.0-pr.12402.gcf7bd8db
-#:package Aspire.Hosting.DevTunnels@13.0.0-pr.12402.gcf7bd8db
-#:package CommunityToolkit.Aspire.Hosting.NodeJS.Extensions@9.7.0
+#:sdk Aspire.AppHost.Sdk@13.0.0-preview.1.25517.3
+#:package Aspire.Hosting.Azure.AppContainers
+#:package Aspire.Hosting.Azure.Redis
+#:package Aspire.Hosting.Docker
+#:package Aspire.Hosting.Redis
+#:package Aspire.Hosting.SqlServer
+#:package Aspire.Hosting.NodeJs
+#:package Aspire.Hosting.Yarp
+#:package Aspire.Hosting.Maui
+#:package Aspire.Hosting.DevTunnels
+#:package CommunityToolkit.Aspire.Hosting.NodeJS.Extensions
 #:project ./BingoBoard.Admin
 #:project ./BingoBoard.MigrationService
 #:property UserSecretsId=aspire-samples-bingoboard
@@ -64,7 +64,7 @@ var admin = builder.AddProject<Projects.BingoBoard_Admin>("boardadmin")
 
 if (builder.ExecutionContext.IsRunMode)
 {
-    builder.AddViteApp("bingoboard-dev", "./bingo-board", true)
+    builder.AddViteApp("bingoboard-dev", "./bingo-board")
         .WithNpmPackageInstallation()
         .WithReference(admin)
         .WaitFor(admin)
